@@ -12,4 +12,5 @@ q.close()
 with con:
     data = con.execute(sql)
     for i in data:
-        print (i)
+        # this print is specific to querying the Notes table
+        print (f"{i[0]} {i[1]} {i[2]} {i[3]}")
