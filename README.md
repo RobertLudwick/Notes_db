@@ -17,11 +17,6 @@ Write your own custom queries and test them with an included script.
 Run once, this will return an error than run once again. The app should work on the second run
 
 ## Planned features
-### Formatting
-reformat the output of run
-
-### Add notes
-Write your own notes
 
 ### GUI
 I would like a text box as well as more ways to visualize the notes

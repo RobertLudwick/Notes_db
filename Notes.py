@@ -5,15 +5,21 @@ Notes = []
 
 
 
-sql = 'INSERT INTO NOTES (id, name, parent, note) values(?, ?, ?, ?)'
-Query = [
-    5,
-    'Test5',
-    'Test1',
-    'does this work'
-]
+sql = 'INSERT INTO NOTES (name, parent, note) values(?, ?, ?)'
+Query = []
 
 con = sl.connect('Notes.db')
+
+def Note_add():
+    Parent = input("Pick a Parent ")
+    Name = input("Name your Note ")
+    Text= input("Write your note ")
+    Query.append(Name)
+    Query.append(Parent)
+    Query.append(Text)
+    with con:
+        con.execute(sql, Query)
+    
 
 def Note_Retrieval(Note):
     with con:
@@ -54,7 +60,10 @@ with con:
         Notes .append(i)
 
 Output = Data_format('origin', 0)
-#con.execute(sql, Query)
 
-input = input("Which note would you like to view? ")
-Note_Retrieval(input)
+
+response = input("Which note would you like to view? ")
+if response == "add":
+    Note_add()
+else:
+    Note_Retrieval(input)
