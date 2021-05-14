@@ -1,9 +1,7 @@
 import sqlite3 as sl
-import os, datetime
+#import os, datetime
 
 Notes = []
-
-
 
 sql = 'INSERT INTO NOTES (name, parent, note) values(?, ?, ?)'
 Query = []
@@ -20,7 +18,6 @@ def Note_add():
     with con:
         con.execute(sql, Query)
     
-
 def Note_Retrieval(Note):
     with con:
         note = con.execute(f"SELECT * FROM NOTES WHERE name = '{Note}'")
@@ -43,8 +40,6 @@ def Data_format(parent, loop):
         #print(parent)
         return('')
 
-
-
 with con:
     con.execute("""
         CREATE TABLE IF NOT EXISTS NOTES (
@@ -61,9 +56,8 @@ with con:
 
 Output = Data_format('origin', 0)
 
-
 response = input("Which note would you like to view? ")
 if response == "add":
     Note_add()
 else:
-    Note_Retrieval(input)
+    Note_Retrieval(response)
